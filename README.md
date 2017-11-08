@@ -38,13 +38,9 @@ console.log("Magic happening on port " + PORT);
 7. create-react-app client
 8. Update express port other than 3001
 9. npm install concurrently //From root folder
-11. npm run build //From client folder
-12. add  
-```javascript 
-client/build/ 
-``` 
-to outer .gitignore
-13. add to server: 
+10. npm run build //From client folder
+11. add "client/build/" to outer .gitignore
+12. add to server: 
 ```javascript
     app.use(express.static(__dirname + '/client/build/'));
     ...
