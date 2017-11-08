@@ -67,7 +67,7 @@ console.log("Magic happening on port " + PORT);
   },
 ```
 15. deploy to heroku: 
-    1. heroku create //app-name-maybe
+    1. heroku create //app-name-optional-here
     2. heroku addons:create mongolab:sandbox
     3. git add -A
     4. git commit -m "commit message"
