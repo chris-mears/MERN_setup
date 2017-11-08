@@ -12,7 +12,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI); //mongodb://localhost/idea-board
+mongoose.connect(process.env.MONGODB_URI, {useMongoClient: true}); 
 
 const connection = mongoose.connection;
 connection.on('connected', () => {
@@ -37,14 +37,13 @@ console.log("Magic happening on port " + PORT);
 6. Commit
 7. create-react-app client
 8. Update express port other than 3001
-9. npm install concurrently
-10.  add to outer package json (in scripts):
-```javascript
-           "start": "node server.js" ,
-		   "dev": "concurrently 'nodemon server.js' 'cd client && npm start'",  
-```
-11. npm run build (from client folder) //Optional
-12. add client/build/ to outer .gitignore //Optional
+9. npm install concurrently //From root folder
+11. npm run build //From client folder
+12. add  
+```javascript 
+client/build/ 
+``` 
+to outer .gitignore
 13. add to server: 
 ```javascript
     app.use(express.static(__dirname + '/client/build/'));
@@ -54,14 +53,14 @@ console.log("Magic happening on port " + PORT);
 	      })
 ```
 13. touch .env with MONGODB_URI=mongodb://localhost/(DB Name) make sure gitignore has .env in it
-14. set up engines and post install in package.json
+14. set up engines and post install, update "main" to "server.js" in package.json //In root folder
 ```javascript
      "engines": {
    "node": "8.9.0"
  },
  "scripts": {
-    "start": "node app.js",
-    "dev": "concurrently \"node app.js\" \"cd client && npm start\"",
+    "start": "node server.js",
+    "dev": "concurrently \"node server.js\" \"cd client && npm start\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "cd client && npm i && npm run build"
   },
@@ -73,7 +72,7 @@ console.log("Magic happening on port " + PORT);
     4. git commit -m "commit message"
     5. git push heroku master
 16.  npm i react-router-dom axios styled-components (from client folder)
-17.  add proxy to client package.json
+17.  add proxy to client package.json //right under "private"
 ```javascript
 "proxy": "http://localhost:3001", 
 ```
