@@ -77,4 +77,4 @@ console.log("Magic happening on port " + PORT);
 ```javascript
 "proxy": "http://localhost:3001", 
 ```
-    //3001 should be whatever port you have the express app on. Will need to restart server for proxy to work
+//3001 should be whatever port you have the express app on. Will need to restart server for proxy to work
