@@ -43,8 +43,8 @@ console.log("Magic happening on port " + PORT);
            "start": "node server.js" ,
 		   "dev": "concurrently 'nodemon server.js' 'cd client && npm start'",  
 ```
-11. npm run build (from client folder)
-12. add client/build/ to outer .gitignore
+11. npm run build (from client folder) //Optional
+12. add client/build/ to outer .gitignore //Optional
 13. add to server: 
 ```javascript
     app.use(express.static(__dirname + '/client/build/'));
@@ -57,7 +57,7 @@ console.log("Magic happening on port " + PORT);
 14. set up engines and post install in package.json
 ```javascript
      "engines": {
-   "node": 8.9.0
+   "node": "8.9.0"
  },
  "scripts": {
     "start": "node app.js",
